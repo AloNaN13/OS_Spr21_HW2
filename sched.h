@@ -565,6 +565,9 @@ struct task_struct {
 	 */
 	struct thread_info		thread_info;
 #endif
+
+	int	weight_of_task;
+	
 	/* -1 unrunnable, 0 runnable, >0 stopped: */
 	volatile long			state;
 
@@ -1136,7 +1139,6 @@ struct task_struct {
 	 * they are included in the randomized portion of task_struct.
 	 */
 	randomized_struct_fields_end
-	int				weight_of_task;
 	/* CPU-specific state of this task: */
 	struct thread_struct		thread;
 

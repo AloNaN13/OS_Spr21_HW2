@@ -945,7 +945,7 @@ asmlinkage long sys_statx(int dfd, const char __user *path, unsigned flags,
 // Our Part
 asmlinkage long sys_hello(void);
 // Our Funcs
-asmlinkage long  sys_set_weight(int weight);
+asmlinkage long sys_set_weight(int weight);
 asmlinkage long sys_get_weight(void);
 //static asmlinkage long rec_calculate_sum(struct task_struct* ts);
 asmlinkage long sys_get_children_sum(void);

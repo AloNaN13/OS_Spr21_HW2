@@ -12,7 +12,7 @@ asmlinkage long sys_hello(void) {
 
 // Our Part
 
-asmlinkage long  sys_set_weight(int weight){
+asmlinkage long sys_set_weight(int weight){
 	if(weight < 0){
 		return -EINVAL;
 	}
