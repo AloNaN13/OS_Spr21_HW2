@@ -3,6 +3,8 @@
  */
 
 #include <linux/kernel.h>
+#include <linux/sched.h>
+#include <linux/init_task.h>
 
 asmlinkage long sys_hello(void) {
 	printk("Hello, World!\n");
@@ -44,7 +46,7 @@ asmlinkage long sys_get_children_sum(void){
 }
 
 asmlinkage pid_t sys_get_heaviest_ancestor(void){
-    struct tast_struct* process = current;
+    struct task_struct* process = current;
     int heaviest_weight = process->weight_of_task;
     pid_t heaviest_pid = process->pid;
     while(process->pid != 1){
