@@ -941,15 +941,13 @@ asmlinkage long sys_pkey_free(int pkey);
 asmlinkage long sys_statx(int dfd, const char __user *path, unsigned flags,
 			  unsigned mask, struct statx __user *buffer);
 
-
-// Our Part
+// Our Part - HW2_OS
 asmlinkage long sys_hello(void);
-// Our Funcs
+// Our Functions
 asmlinkage long sys_set_weight(int weight);
 asmlinkage long sys_get_weight(void);
 //static asmlinkage long rec_calculate_sum(struct task_struct* ts);
 asmlinkage long sys_get_children_sum(void);
 asmlinkage long sys_get_heaviest_ancestor(void);
-
 
 #endif

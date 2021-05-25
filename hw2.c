@@ -12,7 +12,7 @@ asmlinkage long sys_hello(void) {
 }
 
 
-// Our Part
+// Process Weight
 
 asmlinkage long sys_set_weight(int weight){
 	if(weight < 0){
@@ -58,76 +58,3 @@ asmlinkage pid_t sys_get_heaviest_ancestor(void){
     }
 	return heaviest_pid;
 }
-
-
-// Alon's Questions
-    // why use asmlinkage?
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// other - DELETE THIS
-
-
-/*
-
-int _internal_get_total_weight(struct task_struct* tsk){ // do we need asmlinkage?
-
-    int total = tsk->task_weight;
-    struct list_head* list;
-    list_for_each(list, &tsk->children) {
-        struct task_struct* child = list_entry(list, struct task_struct, sibling);
-        total += _internal_get_total_weight(child);
-    }
-    return total;
-
-}
-	
-asmlinkage long sys_get_total_weight(void){
-    return _internal_get_total_weight(current);
-}
-
-
-asmlinkage long sys_get_heaviest_child(void){  
-    int curr_max = -1;
-    pid_t curr_pid = -1;
-    struct list_head* list;
-    list_for_each(list, &current->children) {
-        struct task_struct* child = list_entry(list, struct task_struct, sibling);
-        if(curr_max < _internal_get_total_weight(child)){
-            curr_max = _internal_get_total_weight(child);
-            curr_pid = child->pid;
-        }
-    }
-    return (long)((curr_max >= 0)? curr_pid : -ECHILD);
-}
-
-
-*/
