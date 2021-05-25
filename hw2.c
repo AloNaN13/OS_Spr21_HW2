@@ -50,9 +50,9 @@ asmlinkage pid_t sys_get_heaviest_ancestor(void){
     int heaviest_weight = process->weight_of_task;
     pid_t heaviest_pid = process->pid;
     while(process->pid != 1){
-        if(process->real_parent->weight_of_task >= process->weight_of_task){ // use parent or real_parent?
-            heaviest_weight = process->real_parent->weight_of_task;
-            heaviest_pid = process->real_parent->pid;
+        if(process->weight_of_task > heaviest_weight){
+            heaviest_weight = process->weight_of_task;
+            heaviest_pid = process->pid;
         }
         process = process->real_parent;
     }
